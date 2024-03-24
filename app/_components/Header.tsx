@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import React from "react";
-import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
-
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 
 type Props = {};
 
@@ -94,7 +96,7 @@ const Header = (props: Props) => {
                 className="hidden rounded-md bg-stone-100 px-5 py-2.5 text-sm font-medium text-stone-800 transition hover:text-stone-800/75 sm:block"
                 href="#"
               >
-               <RegisterLink> Register </RegisterLink>
+                <RegisterLink> Register </RegisterLink>
               </a>
             </div>
 

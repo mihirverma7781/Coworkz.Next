@@ -65,7 +65,7 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
             </Button>
           </DialogTrigger>
           {/* Content */}
-          {totalFiles && totalFiles < CONSTANTS.MAX_FREE_FILES ? (
+          {totalFiles && totalFiles > CONSTANTS.MAX_FREE_FILES ? (
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Create New File</DialogTitle>
