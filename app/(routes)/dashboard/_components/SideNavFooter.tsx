@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { DialogClose } from "@radix-ui/react-dialog";
+import CONSTANTS from "@/app/_constants";
 
 const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
   const BOTTOM_MENU_LIST = [
@@ -64,34 +65,48 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
             </Button>
           </DialogTrigger>
           {/* Content */}
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Create New File</DialogTitle>
-              <DialogDescription className="pt-4">
-                <label className="text-xs text-gray-400" htmlFor="filename">
-                  {" "}
-                  File Name
-                </label>
-                <Input
-                  placeholder="Enter file name"
-                  className="mt-1"
-                  onChange={(event) => setFileInput(event.target.value)}
-                />
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter className="sm:justify-end">
-              <DialogClose asChild>
-                <Button
-                  type="button"
-                  disabled={!(fileInput && fileInput?.length > 3)}
-                  className="bg-emerald-500 hover:bg-emerald-400"
-                  onClick={() => onFileCreate(fileInput)}
-                >
-                  Create
-                </Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
+          {totalFiles && totalFiles < CONSTANTS.MAX_FREE_FILES ? (
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Create New File</DialogTitle>
+                <DialogDescription className="pt-4">
+                  <label className="text-xs text-gray-400" htmlFor="filename">
+                    {" "}
+                    File Name
+                  </label>
+                  <Input
+                    placeholder="Enter file name"
+                    className="mt-1"
+                    onChange={(event) => setFileInput(event.target.value)}
+                  />
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter className="sm:justify-end">
+                <DialogClose asChild>
+                  <Button
+                    type="button"
+                    disabled={!(fileInput && fileInput?.length > 3)}
+                    className="bg-emerald-500 hover:bg-emerald-400"
+                    onClick={() => onFileCreate(fileInput)}
+                  >
+                    Create
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          ) : (
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>You Have Reach Your Max Limit</DialogTitle>
+                <DialogDescription className="pt-4">
+                  <p className="text-sm text-gray-400">
+                    For Right now, you can create new team to create another
+                    file.
+                  </p>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          )}
         </Dialog>
       </div>
 
@@ -106,7 +121,8 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
           ></div>
         </div>
         <h2 className="text-sm mt-4 text-gray-500">
-          <strong>{totalFiles}</strong> out of <strong>5</strong> files used.
+          <strong>{totalFiles}</strong> out of{" "}
+          <strong>{CONSTANTS.MAX_FREE_FILES}</strong> files used.
         </h2>
         <h2 className="text-xs mt-2">
           <strong className="text-blue-800">Upgrade</strong> your plan to get{" "}

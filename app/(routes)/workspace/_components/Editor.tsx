@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 //@ts-ignore
@@ -21,7 +20,6 @@ import Table from "@editorjs/table";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
-import { error } from "console";
 
 type Props = {};
 
@@ -47,7 +45,7 @@ const RAW_DOC = {
   version: "2.8.1",
 };
 
-const Editor = ({ onSaveTrigger, fileId }: any) => {
+const Editor = ({ onSaveTrigger, fileId, fileData }: any) => {
   const ref = useRef<EditorJS>();
   const updateDocument = useMutation(api.files.updateDocument);
   const [document, setDocument] = useState(RAW_DOC);
@@ -55,7 +53,7 @@ const Editor = ({ onSaveTrigger, fileId }: any) => {
   const initEditor = () => {
     const editor = new EditorJS({
       holder: "editorjs",
-      data: document,
+      data: fileData?.document ? JSON.parse(fileData.document) : RAW_DOC,
       tools: {
         header: {
           class: Header,
@@ -123,36 +121,36 @@ const Editor = ({ onSaveTrigger, fileId }: any) => {
 
   const onSaveDocument = () => {
     if (ref.current) {
-      ref?.current
-        ?.save()
+      ref.current
+        .save()
         .then((outputData) => {
           updateDocument({
             _id: fileId,
             document: JSON.stringify(outputData),
           })
             .then((response) => {
-              return toast.success("Document Updated!");
+              toast.success("Document Updated!");
             })
             .catch((error) => {
-              return toast.error("Error updating document");
+              toast.error("Error updating document");
             });
         })
         .catch((error) => {
-          return toast.error("Error updating document");
+          toast.error("Error updating document");
         });
     }
   };
 
   useEffect(() => {
-    initEditor();
-  }, []);
+    fileData && initEditor();
+  }, [fileData]);
 
   useEffect(() => {
     onSaveTrigger && onSaveDocument();
   }, [onSaveTrigger]);
   return (
-    <div>
-      <div id="editorjs" className="ml-20"></div>
+    <div className="w-full">
+      <div id="editorjs" className=" pl-4 w-full"></div>
     </div>
   );
 };

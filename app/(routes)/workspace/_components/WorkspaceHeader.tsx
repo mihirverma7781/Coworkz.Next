@@ -8,7 +8,7 @@ type Props = {};
 const WorkspaceHeader = ({ onSave }: any) => {
   return (
     <div>
-      <div className="flex items-center gap-2 p-3 border-b justify-between">
+      <div className="flex items-center gap-2 p-3 border-b-2 border-gray-100 justify-between">
         <div className="flex items-center gap-2">
           <Image src="/logo.svg" height={32} width={32} alt="logo" />
           <h2 className="font-semibold">File Name</h2>

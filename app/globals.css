@@ -21,6 +21,14 @@ h6.ce-header {
   @apply text-base font-semibold;
 }
 
+.h-canvas {
+  height: calc(100vh - 68px);
+}
+
+.codex-editor__redactor {
+  padding-bottom: 20px !important;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

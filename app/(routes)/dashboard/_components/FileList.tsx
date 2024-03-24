@@ -34,13 +34,12 @@ const FileList = () => {
 
   useEffect(() => {
     setFileList(fileList_);
-    console.log(fileList_);
   }, [fileList_]);
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 border rounded-lg">
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg" >
           <thead className="text-left">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">

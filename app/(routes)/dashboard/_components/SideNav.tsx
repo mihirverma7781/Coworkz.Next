@@ -44,7 +44,6 @@ const SideNav = (props: Props) => {
     const result = await convex.query(api.files.getFiles, {
       teamId: activeTeam?._id || "",
     });
-    console.log(result)
     setFileList_(result);
     setTotalFiles(result?.length);
   };

@@ -9,6 +9,7 @@ import {
 import { useConvex, useMutation, useQuery } from "convex/react";
 import React, { useEffect } from "react";
 import FileList from "./_components/FileList";
+import { toast } from "sonner";
 
 type Props = {};
 
@@ -25,7 +26,7 @@ const Dashboard = (props: Props) => {
         email: user.email,
         image: user.picture,
       }).then((result) => {
-        console.log("user created", result);
+        toast.success("Profile created successfully");
       });
     }
   };
@@ -38,6 +39,9 @@ const Dashboard = (props: Props) => {
 
   return (
     <div>
+      <header className="mt-10">
+        <h2 className="font-semibold text-xl text-gray-800">Your Files</h2>
+      </header>
       <FileList />
     </div>
   );

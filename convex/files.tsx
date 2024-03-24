@@ -37,9 +37,30 @@ export const updateDocument = mutation({
     document: v.string(),
   },
   handler: async (ctx, args) => {
-    const documentUpdated = await ctx.db.patch(args._id, {
-      document: args.document,
+    const result = await ctx.db.patch(args._id, { document: args.document });
+    return result;
+  },
+});
+
+export const updateWhiteBoard = mutation({
+  args: {
+    _id: v.id("files"),
+    whiteBoard: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const result = await ctx.db.patch(args._id, {
+      whiteBoard: args.whiteBoard,
     });
-    return documentUpdated;
+    return result;
+  },
+});
+
+export const getFileById = query({
+  args: {
+    _id: v.id("files"),
+  },
+  handler: async (ctx, args) => {
+    const result = await ctx.db.get(args._id);
+    return result;
   },
 });
