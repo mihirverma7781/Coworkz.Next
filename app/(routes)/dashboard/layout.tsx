@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import SideNav from "./_components/SideNav";
 import DashboardHeader from "./_components/DashboardHeader";
-import { FileListContext } from "@/app/context/fileListContext";
+import { FileListContext } from "../../context/FileContext";
 
 const DashboardLayout = ({
   children,

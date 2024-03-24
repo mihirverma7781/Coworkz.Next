@@ -1,5 +1,4 @@
-
-import { FileListContext } from "@/app/context/fileListContext";
+import { FileListContext } from "../../../context/FileContext";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { Archive, Delete, MoreHorizontalIcon } from "lucide-react";
 import moment from "moment";
@@ -39,7 +38,7 @@ const FileList = () => {
   return (
     <div className="mt-10 border rounded-lg">
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg" >
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-lg">
           <thead className="text-left">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">

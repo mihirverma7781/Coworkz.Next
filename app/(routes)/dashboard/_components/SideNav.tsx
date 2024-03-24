@@ -5,7 +5,7 @@ import SideNavFooter from "./SideNavFooter";
 import { useConvex, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
-import { FileListContext } from "@/app/context/fileListContext";
+import { FileListContext } from "../../../context/FileContext";
 
 type Props = {};
 
