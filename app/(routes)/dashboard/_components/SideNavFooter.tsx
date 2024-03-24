@@ -65,7 +65,7 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
             </Button>
           </DialogTrigger>
           {/* Content */}
-          {totalFiles && totalFiles <=  CONSTANTS.MAX_FREE_FILES ? (
+          {/* {totalFiles && totalFiles <=  CONSTANTS.MAX_FREE_FILES ? ( */}
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Create New File</DialogTitle>
@@ -94,7 +94,7 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
                 </DialogClose>
               </DialogFooter>
             </DialogContent>
-          ) : (
+          {/* ) : (
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>You Have Reach Your Max Limit</DialogTitle>
@@ -106,7 +106,7 @@ const SideNavFooter = ({ onFileCreate, totalFiles }: any) => {
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
-          )}
+          )} */}
         </Dialog>
       </div>
 
