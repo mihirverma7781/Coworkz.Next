@@ -8,7 +8,7 @@ const Hero = (props: Props) => {
       <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex h-screen lg:items-center">
         <div className="mx-auto max-w-4xl text-center flex flex-col items-center sm:-mt-14">
           <h2 className="text-sm text-white border border-white text-center px-3 py-2 rounded-full mb-14">
-            See What's New | AI <span className="text-purple-300">Diagram</span>
+             Your Free <span className="text-purple-300">Notion</span> X <span className="text-emerald-300">Excalidraw</span>
           </h2> 
           <h1 className=" leading-snug text-4xl font-extrabold sm:text-6xl sm:leading-snug text-emerald-300">
             Documents & diagrams
